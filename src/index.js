@@ -5,6 +5,8 @@ const employeesRoutes = require('./routes/employees.routes');
 
 const app = express();
 
+app.use(express.json());
+
 app.use(indexRoutes);
 app.use(employeesRoutes);
 
