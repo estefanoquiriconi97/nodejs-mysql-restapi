@@ -5,7 +5,7 @@ const employeesRoutes = require('./routes/employees.routes');
 const dotenv = require('dotenv');
 dotenv.config();
 
-const {HTTP_PORT} = process.env;
+const {PORT} = process.env;
 
 const app = express();
 
@@ -20,6 +20,6 @@ app.use((req, res, next) => {
   })
 }) 
 
-app.listen(HTTP_PORT, () => {
-  console.log('http://localhost:' + HTTP_PORT);
+app.listen(PORT, () => {
+  console.log('http://localhost:' + PORT);
 });
