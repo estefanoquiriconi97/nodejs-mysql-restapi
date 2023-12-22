@@ -2,7 +2,6 @@ const {createPool} = require("mysql2/promise");
 const dotenv = require('dotenv');
 dotenv.config();
 
-
 const { 
     DB_HOST,
     DB_USER,
