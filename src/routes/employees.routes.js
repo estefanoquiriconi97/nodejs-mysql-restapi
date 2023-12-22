@@ -1,6 +1,7 @@
 const express = require("express");
 
 const {
+  getEmployees,
   getEmployee,
   createEmployee,
   deleteEmployee,
@@ -9,7 +10,9 @@ const {
 
 const router = express.Router();
 
-router.get("/employees", getEmployee);
+router.get("/employees", getEmployees);
+
+router.get("/employees/:id", getEmployee);
 
 router.post("/employees", createEmployee);
 

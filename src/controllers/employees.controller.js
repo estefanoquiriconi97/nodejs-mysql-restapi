@@ -1,8 +1,22 @@
 const pool = require("../db");
 
 const employeesController = {
-  getEmployee: (req, res) => {
-    res.send("Obteniendo empleados");
+
+  getEmployees: async (req, res) => {
+    const [rows] = await pool.query('SELECT * FROM employee');
+    res.json(rows);
+  },
+
+  getEmployee : async (req, res) => {
+    const employeeId = req.params.id;
+    const [rows] = await pool.query('SELECT * FROM employee WHERE id = ?', [employeeId])
+    
+    if(rows.length <= 0){
+      return res.status(404).json({
+        message: 'Employee not found'
+      })
+    }
+    res.json(rows[0])
   },
 
   createEmployee: async (req, res) => {
